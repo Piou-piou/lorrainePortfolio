@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Project;
 use App\Form\EditProject;
 use App\Service\FileTreaterFineUploader;
+use ImagickException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,10 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PortfolioController extends AbstractController
 {
-	/**
-	 * @Route("/ribs-admin/portfolio/image/{id}", name="ribsadmin_portfolio_image")
-	 * @return JsonResponse
-	 */
+    /**
+     * @Route("/ribs-admin/portfolio/image/{id}", name="ribsadmin_portfolio_image")
+     * @param FileTreaterFineUploader $fine_uploader
+     * @param int|null $id
+     * @return JsonResponse
+     */
 	public function getImage(FileTreaterFineUploader $fine_uploader, int $id = null)
 	{
 		if ($id === null) return new JsonResponse([]);
@@ -45,13 +48,16 @@ class PortfolioController extends AbstractController
 			"articles" => $articles,
 		]);
 	}
-	
-	/**
-	 * @Route("/ribs-admin/portfolio/create/", name="ribsadmin_portfolio_create"))
-	 * @Route("/ribs-admin/portfolio/edit/{id}", name="ribsadmin_portfolio_edit"))
-	 * @param Request $request
-	 * @return \Symfony\Component\HttpFoundation\Response
-	 */
+
+    /**
+     * @Route("/ribs-admin/portfolio/create/", name="ribsadmin_portfolio_create"))
+     * @Route("/ribs-admin/portfolio/edit/{id}", name="ribsadmin_portfolio_edit"))
+     * @param Request $request
+     * @param FileTreaterFineUploader $fine_uploader
+     * @param int|null $id
+     * @return Response
+     * @throws ImagickException
+     */
 	public function editProject(Request $request, FileTreaterFineUploader $fine_uploader, int $id = null): Response
 	{
 		$em = $this->getDoctrine()->getManager();
