@@ -17,7 +17,7 @@ Encore
 ])
 
 .addStyleEntry('css/vendor', [
-  './node_modules/ribs-popup/dist/css/style.css',
+  './node_modules/ribs-popup/dist/css/style.min.css',
 ])
 
 .addStyleEntry('css/fine-uploader', [
