@@ -1,0 +1,21 @@
+.ribs-nav {
+	float: right;
+	
+	&.inline {
+		li {
+			display: inline-block;
+			
+		}
+	}
+}
+
+nav {
+	margin-top: 1rem;
+	
+	li {
+		text-transform: uppercase;
+		padding: 10px;
+		font-weight: bold;
+		margin: 0 10px;
+	}
+}
