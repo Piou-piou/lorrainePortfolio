@@ -1,13 +1,28 @@
 header {
 	min-height: 100%;
-	background: #000000;
-	color: #ffffff;
+	height: 100%;
+	background: $header_background;
+	position: relative;
 
 	h1, h2 {
 		margin: 0;
+		font-size: 7rem;
+		color: $header_color_title;
 	}
 	
-	h1 {
-		padding-top: 15%;
+	h2 {
+		letter-spacing: 2px;
+	}
+	
+	h3 {
+		font-size: 2rem;
+		background: $header_background_h3;
+		color: $header_color_h3;
+		padding: 5px;
+		font-weight: bold;
+	}
+	
+	div.h100 {
+		height: 100%;
 	}
 }
