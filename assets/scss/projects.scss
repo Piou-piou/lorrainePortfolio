@@ -1,5 +1,49 @@
 .projects {
 	.block {
 		margin: .9375rem 0;
+		height: 370px;
+		position: relative;
+		overflow: hidden;
+		
+		&:hover {
+			.bg-image {
+				filter: blur(3px);
+				transition: all 0.3s ease;
+			}
+			
+			.bg-text {
+				transform: scale(1);
+				transition: all 0.3s ease;
+			}
+		}
+		
+		.bg-image {
+			height: 100%;
+			transition: all 0.3s ease;
+		}
+		
+		.bg-text {
+			background-color: $projects-background-text;
+			color: $projects-color-text;
+			font-weight: bold;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 2;
+			width: 92.5%;
+			height: 100%;
+			margin: 0 .9375rem;
+			padding-top: 120px;
+			text-align: center;
+			transform: scale(0);
+			transition: all 0.3s ease;
+		}
+		
+		.border {
+			width: 60%;
+			height: 2px;
+			background: $projects-color-border;
+			margin: 10px auto;
+		}
 	}
 }

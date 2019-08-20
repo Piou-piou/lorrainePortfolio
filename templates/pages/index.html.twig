@@ -5,7 +5,13 @@
         <div class="row">
             {% for i in 1..7 %}
                 <div class="csm-12 cmd-4 block">
-                    <img src="{{ asset('images/accueil/0'~i~'.jpg') }}" alt="image {{ i }}">
+                    <div class="bg-image" style="background-image: url({{ asset('images/accueil/0'~i~'.jpg') }})"></div>
+
+                    <div class="bg-text">
+                        <h3>Titre du projet</h3>
+                        <div class="border"></div>
+                        <p>Description du projet</p>
+                    </div>
                 </div>
             {% endfor %}
         </div>
