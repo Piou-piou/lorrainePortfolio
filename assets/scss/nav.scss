@@ -1,16 +1,52 @@
-.ribs-nav {
-	float: right;
+$ribs-nav-media-mobile: "(max-width: 576px)";
+$ribs-nav-background: #000000;
+$ribs-nav-color: #ffffff;
+$ribs-icon-color: #ccc;
+
+.ribs-nav-icon {
+	color: $ribs-icon-color;
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
 	
+	@media all and #{$ribs-nav-media-mobile} {
+		display: block;
+	}
+}
+
+.ribs-nav {
 	&.inline {
 		li {
 			display: inline-block;
 			
 		}
 	}
+	
+	&.mobile {
+		@media all and #{$ribs-nav-media-mobile} {
+			position: fixed;
+			left: 0;
+			top: 0;
+			background: $ribs-nav-background;
+			color: $ribs-nav-color;
+			z-index: 2;
+			height: 100vh;
+			
+			li {
+				display: block;
+			}
+		}
+	}
 }
 
 nav {
+	float: right;
 	margin-top: 1rem;
+	
+	@media all and #{$ribs-nav-media-mobile} {
+		margin-top: 0;
+	}
 	
 	li {
 		text-transform: uppercase;
