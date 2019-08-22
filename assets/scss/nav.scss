@@ -47,7 +47,7 @@ $ribs-icon-color: #ccc;
 			z-index: 2;
 			height: 100vh;
 			max-width: calc(100% - 40px);
-			transition: 0.3s left ease;
+			transition: 0.5s left ease;
 			
 			&.open {
 				left: 0;
