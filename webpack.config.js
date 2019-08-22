@@ -8,13 +8,13 @@ Encore
 
   .addStyleEntry('css/style', './assets/scss/style.scss')
 
-  //.addEntry('js/index', './assets/js/index.js')
+  .addEntry('js/ribs-nav', './assets/js/ribs-nav.js')
 
   .createSharedEntry('vendor', './webpack.shared_entry.js')
 
   .configureBabel(function(babelConfig) {
   }, {
-    include_node_modules: ['ribs-core']
+    includeNodeModules: ['ribs-core']
   })
 
   .enableSourceMaps(!Encore.isProduction())
