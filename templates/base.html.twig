@@ -27,8 +27,8 @@
         </header>
 
         <div class="ribs-container">
-            <i class="fas fa-bars fa-2x ribs-nav-open-icon"></i>
-            <nav class="ribs-nav inline mobile">
+            <i class="fas fa-bars fa-2x ribs-nav-open-icon" data-nav="main-nav"></i>
+            <nav class="ribs-nav inline mobile" id="main-nav">
                 <i class="fas fa-times fa-2x ribs-nav-close-icon"></i>
                 <ul>
                     <li>Projets</li>
@@ -42,6 +42,10 @@
         </div>
 
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('build/runtime.js') }}"></script>
+            <script src="{{ asset('build/js/ribs-nav.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
