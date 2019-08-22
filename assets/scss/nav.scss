@@ -12,9 +12,15 @@ $ribs-icon-color: #ccc;
 	left: 0;
 	top: 0;
 	z-index: 3;
+	opacity: 1;
+	transition: 0.3s opacity ease;
 	
 	@media all and #{$ribs-nav-media-mobile} {
 		display: block;
+	}
+	
+	&.hidden {
+		opacity: 0;
 	}
 }
 
@@ -41,6 +47,11 @@ $ribs-icon-color: #ccc;
 			z-index: 2;
 			height: 100vh;
 			max-width: calc(100% - 40px);
+			transition: 0.3s left ease;
+			
+			&.open {
+				left: 0;
+			}
 			
 			.ribs-nav-close-icon {
 				display: block;
