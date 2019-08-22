@@ -7,8 +7,11 @@ $ribs-icon-color: #ccc;
 	color: $ribs-icon-color;
 	display: none;
 	position: fixed;
+	margin: 15px 0 0 15px;
+	cursor: pointer;
 	left: 0;
 	top: 0;
+	z-index: 3;
 	
 	@media all and #{$ribs-nav-media-mobile} {
 		display: block;
@@ -30,7 +33,8 @@ $ribs-icon-color: #ccc;
 	&.mobile {
 		@media all and #{$ribs-nav-media-mobile} {
 			position: fixed;
-			left: 0;
+			left: -400px;
+			display: none;
 			top: 0;
 			background: $ribs-nav-background;
 			color: $ribs-nav-color;
@@ -44,6 +48,7 @@ $ribs-icon-color: #ccc;
 				right: -42px;
 				padding: 10px;
 				background: $ribs-nav-background;
+				cursor: pointer;
 			}
 			
 			li {
