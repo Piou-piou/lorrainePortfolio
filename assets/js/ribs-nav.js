@@ -4,6 +4,7 @@ class Ribsnav {
   constructor() {
     this.addEventListenerOpenButtons();
     this.addEventListenerCloseButtons();
+    this.addEventListenerWindowResize();
   }
 
   /**
@@ -52,6 +53,26 @@ class Ribsnav {
 
     Array.from(buttons).forEach((element) => {
       element.addEventListener('click', this.closeNav);
+    });
+  }
+
+  /**
+   * method to change display of nav if screen size change
+   */
+  addEventListenerWindowResize() {
+    window.addEventListener('resize', () => {
+      const width = document.documentElement.clientWidth;
+      const navs = document.getElementsByClassName('ribs-nav');
+      let display = 'block';
+      if (width < 576) {
+        display = 'none';
+      }
+
+      Array.from(navs).forEach((element) => {
+        if (element.style.display !== display) {
+          element.style.display = display;
+        }
+      });
     });
   }
 }
