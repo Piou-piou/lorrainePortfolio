@@ -17,7 +17,7 @@ class Ribsnav {
     const nav = document.getElementById(dataNav);
     button.classList.add('hidden');
     nav.style.display = 'block';
-    nav.classList.add('open');
+    nav.style.left = `0px`;
   }
 
   /**
@@ -28,9 +28,8 @@ class Ribsnav {
     const button = event.currentTarget;
     const nav = RibsCore.parents(button, '.ribs-nav');
     const openButton = document.querySelector(`[data-nav="${nav.id}"]`);
-    console.log(`[data-nav="${nav.id}"]`)
     openButton.classList.remove('hidden');
-    nav.classList.remove('open');
+    nav.style.left = `-${nav.dataset.leftPosition}px`;
     setTimeout(() => nav.style.display = 'none', 600);
   }
 
@@ -57,6 +56,18 @@ class Ribsnav {
   }
 
   /**
+   * method to define left position of nav to hide it on mobile
+   * @param navs
+   */
+  definePosLeftMobileNav(navs) {
+    Array.from(navs).forEach((element) => {
+      if (!element.dataset.leftPosition) {
+        element.dataset.leftPosition = RibsCore.getWidth(element);
+      }
+    });
+  }
+
+  /**
    * method to change display of nav if screen size change
    */
   addEventListenerWindowResize() {
@@ -64,8 +75,9 @@ class Ribsnav {
       const width = document.documentElement.clientWidth;
       const navs = document.getElementsByClassName('ribs-nav');
       let display = 'block';
-      if (width < 576) {
+      if (width < 570) {
         display = 'none';
+        this.definePosLeftMobileNav(navs);
       }
 
       Array.from(navs).forEach((element) => {

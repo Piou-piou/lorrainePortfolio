@@ -39,7 +39,6 @@ $ribs-icon-color: #ccc;
 	&.mobile {
 		@media all and #{$ribs-nav-media-mobile} {
 			position: fixed;
-			left: -400px;
 			display: none;
 			top: 0;
 			background: $ribs-nav-background;
@@ -48,10 +47,6 @@ $ribs-icon-color: #ccc;
 			height: 100vh;
 			max-width: calc(100% - 40px);
 			transition: 0.5s left ease;
-			
-			&.open {
-				left: 0;
-			}
 			
 			.ribs-nav-close-icon {
 				display: block;
