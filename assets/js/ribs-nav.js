@@ -5,6 +5,7 @@ class Ribsnav {
     this.addEventListenerOpenButtons();
     this.addEventListenerCloseButtons();
     this.addEventListenerWindowResize();
+    this.definePosLeftMobileNavOnLoad();
   }
 
   /**
@@ -61,7 +62,7 @@ class Ribsnav {
    */
   definePosLeftMobileNav(navs) {
     Array.from(navs).forEach((element) => {
-      if (!element.dataset.leftPosition && document.documentElement.clientWidth < 570) {
+      if (!element.dataset.leftPosition && window.innerWidth < 576) {
         element.dataset.leftPosition = RibsCore.getWidth(element);
         if (element.style.display === '' || element.style.display === 'none') {
           element.style.left = `-${element.dataset.leftPosition}px`;
@@ -71,14 +72,23 @@ class Ribsnav {
   }
 
   /**
+   * method to define left pos of nav on page load
+   */
+  definePosLeftMobileNavOnLoad() {
+    if (window.innerWidth < 576) {
+      this.definePosLeftMobileNav(document.getElementsByClassName('ribs-nav'));
+    }
+  }
+
+  /**
    * method to change display of nav if screen size change
    */
   addEventListenerWindowResize() {
     window.addEventListener('resize', () => {
-      const width = document.documentElement.clientWidth;
+      const width = window.innerWidth;
       const navs = document.getElementsByClassName('ribs-nav');
       let display = 'block';
-      if (width < 570) {
+      if (width < 576) {
         display = 'none';
       }
 
