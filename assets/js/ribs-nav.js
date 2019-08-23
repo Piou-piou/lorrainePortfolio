@@ -104,7 +104,7 @@ class Ribsnav {
         }
       });
 
-      if (!deleteStyles) {console.log('df');
+      if (!deleteStyles) {
         this.definePosLeftMobileNav(navs);
       }
     });
