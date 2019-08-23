@@ -17,7 +17,7 @@ class Ribsnav {
     const nav = document.getElementById(dataNav);
     button.classList.add('hidden');
     nav.style.display = 'block';
-    nav.style.left = `0px`;
+    setTimeout(() => nav.style.left = `0px`, 100);
   }
 
   /**
