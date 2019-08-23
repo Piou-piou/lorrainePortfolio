@@ -88,17 +88,25 @@ class Ribsnav {
       const width = window.innerWidth;
       const navs = document.getElementsByClassName('ribs-nav');
       let display = 'block';
+      let deleteStyles = true;
       if (width < 576) {
         display = 'none';
+        deleteStyles = false;
       }
 
       Array.from(navs).forEach((element) => {
-        if (element.style.display !== display) {
+        if (element.style.display !== display && !deleteStyles) {
           element.style.display = display;
+        }
+
+        if (deleteStyles) {
+          element.style = '';
         }
       });
 
-      this.definePosLeftMobileNav(navs);
+      if (!deleteStyles) {console.log('df');
+        this.definePosLeftMobileNav(navs);
+      }
     });
   }
 }
