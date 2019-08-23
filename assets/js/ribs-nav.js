@@ -61,8 +61,11 @@ class Ribsnav {
    */
   definePosLeftMobileNav(navs) {
     Array.from(navs).forEach((element) => {
-      if (!element.dataset.leftPosition) {
+      if (!element.dataset.leftPosition && document.documentElement.clientWidth < 570) {
         element.dataset.leftPosition = RibsCore.getWidth(element);
+        if (element.style.display === '' || element.style.display === 'none') {
+          element.style.left = `-${element.dataset.leftPosition}px`;
+        }
       }
     });
   }
@@ -77,7 +80,6 @@ class Ribsnav {
       let display = 'block';
       if (width < 570) {
         display = 'none';
-        this.definePosLeftMobileNav(navs);
       }
 
       Array.from(navs).forEach((element) => {
@@ -85,6 +87,8 @@ class Ribsnav {
           element.style.display = display;
         }
       });
+
+      this.definePosLeftMobileNav(navs);
     });
   }
 }
