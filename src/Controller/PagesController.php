@@ -16,4 +16,12 @@ class PagesController extends AbstractController
 	{
 		return $this->render("pages/index.html.twig");
 	}
+
+    /**
+     * @Route("/commandes", name="orders")
+     */
+    public function orders()
+    {
+        return $this->render("pages/orders.html.twig");
+    }
 }

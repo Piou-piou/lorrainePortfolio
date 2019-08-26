@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="ribs-container projects">
+        <div class="row center-xs start-lg">
+            {% for i in 1..4 %}
+                <div class="cxs-11 cmd-6 clg-4 block">
+                    <div class="bg-image" style="background-image: url({{ asset('images/orders/0'~i~'.jpg') }})"></div>
+
+                    <div class="bg-text">
+                        <h3>Titre du projet</h3>
+                        <div class="border"></div>
+                        <p>Description du projet</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
