@@ -18,6 +18,14 @@ class PagesController extends AbstractController
 	}
 
     /**
+     * @Route("/projet", name="project")
+     */
+    public function project()
+    {
+        return $this->render("pages/project.html.twig");
+    }
+
+    /**
      * @Route("/commandes", name="orders")
      */
     public function orders()

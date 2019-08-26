@@ -5,6 +5,7 @@
         <div class="row center-xs start-lg">
             {% for i in 1..7 %}
                 <div class="cxs-11 cmd-6 clg-4 block">
+                    <a href="{{ url('project') }}">
                     <div class="bg-image" style="background-image: url({{ asset('images/index/0'~i~'.jpg') }})"></div>
 
                     <div class="bg-text">
@@ -12,6 +13,7 @@
                         <div class="border"></div>
                         <p>Description du projet</p>
                     </div>
+                    </a>
                 </div>
             {% endfor %}
         </div>
