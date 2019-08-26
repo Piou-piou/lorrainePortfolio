@@ -101,6 +101,8 @@ class Ribsnav {
 
         if (deleteStyles) {
           element.style = '';
+          const showButton = element.parentNode.querySelector('[data-nav]');
+          showButton.classList.remove('hidden');
         }
       });
 
