@@ -8,8 +8,6 @@ Encore
 
   .addStyleEntry('css/style', './assets/scss/style.scss')
 
-  .addEntry('js/ribs-nav', './assets/js/ribs-nav.js')
-
   .createSharedEntry('vendor', './webpack.shared_entry.js')
 
   .configureBabel(function(babelConfig) {
