@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for message in app.session.flashBag.get('success') %}
+        <div class="RibsFlashMessage success">
+            <div class="notification">
+                <div class="left">
+                    <div class="icone">
+                        <i class='fa fa-info'></i>
+                    </div>
+                </div>
+                <div class="right">
+                    <p>{{ message }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="ribs-container contact">
+        <div class="row">
+            <h2 class="text-center">Une question ?</h2>
+            <p class="text-center">N’hésitez pas à me contacter, je vous répondrai le plus rapidement possible</p>
+        </div>
+
+        <form action="{{ path('contact_send') }}" method="post">
+            <div class="row">
+                <div class="cxs-12 cmd-6">
+                    <div class="row">
+                        <div class="cxs-12 cmd-3">
+                            <label for="">Nom</label>
+                        </div>
+                        <div class="cxs-12 cmd-9">
+                            <input type="text" name="lastname" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="cxs-12 cmd-6">
+                    <div class="row">
+                        <div class="cxs-12 cmd-3">
+                            <label for="">Prénom</label>
+                        </div>
+                        <div class="cxs-12 cmd-9">
+                            <input type="text" name="firstname" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cxs-12 cmd-6">
+                    <div class="row">
+                        <div class="cxs-12 cmd-3">
+                            <label for="">Email</label>
+                        </div>
+                        <div class="cxs-12 cmd-9">
+                            <input type="text" name="email" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="cxs-12 cmd-6">
+                    <div class="row">
+                        <div class="cxs-12 cmd-3">
+                            <label for="">Objet</label>
+                        </div>
+                        <div class="cxs-12 cmd-9">
+                            <input type="text" name="object" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cxs-12 cmd-12 message">
+                    <label for="">Message</label>
+                    <textarea name="message" id="" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <button>Envoyer</button>
+            </div>
+        </form>
+        <div class="row">
+            <h2 class="text-center">Ou aussi</h2>
+            <p class="text-center">
+                Vous pouvez me contacter au : <strong>...</strong><br>
+                et m’écrire : <strong>loraine...</strong>
+            </p>
+        </div>
+    </div>
+{% endblock %}
