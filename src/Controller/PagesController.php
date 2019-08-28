@@ -61,7 +61,7 @@ class PagesController extends AbstractController
      */
     public function sendForm(Request $request, Swift_Mailer $mailer): RedirectResponse
     {
-        $message = "<h2> Message de la part de  :" . $request->get("firstname") . " " . $request->get("lastname") . "</h2><br><br>";
+        $message = "<h2> Message de la part de  : " . $request->get("firstname") . " " . $request->get("lastname") . "</h2><br><br>";
 
         $mail = $message . $request->get("message");
 
