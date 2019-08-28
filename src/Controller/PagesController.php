@@ -68,7 +68,7 @@ class PagesController extends AbstractController
         $message = (new Swift_Message("Message de lorrainelonguet.fr, sujet : " . $request->get("object")))
             ->setFrom("no-reply@anthony-pilloud.fr")
             ->setReplyTo($request->get("email"))
-            ->setTo("pilloud.anthony@gmail.comn@gmail.com")
+            ->setTo("pilloud.anthony@gmail.com")
             ->setBody($mail, "text/html");
 
         $mailer->send($message);
