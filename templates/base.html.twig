@@ -12,19 +12,21 @@
     {% endblock %}
 </head>
     <body>
-        <header>
-            <div class="ribs-container h100">
-                <div class="row center-xs middle-xs h100">
-                    <div>
-                        <h1>Lorraine</h1>
-                        <h2>Longuet</h2>
-                        <div class="row end-xs">
-                            <h3>Graphiste</h3>
+        {% if app.request.get('_route') == 'index' %}
+            <header>
+                <div class="ribs-container h100">
+                    <div class="row center-xs middle-xs h100">
+                        <div>
+                            <h1>Lorraine</h1>
+                            <h2>Longuet</h2>
+                            <div class="row end-xs">
+                                <h3>Graphiste</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
+            </header>
+        {% endif %}
 
         <div class="ribs-container">
             <i class="fas fa-bars fa-2x ribs-nav-open-icon" data-nav="main-nav"></i>
