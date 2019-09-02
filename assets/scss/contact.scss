@@ -43,6 +43,10 @@
 				width: 100%;
 				margin: 0 0 1rem;
 				padding: .5rem;
+				
+				@media all and #{$media-mobile} {
+					margin-left: 10px;
+				}
 			}
 		}
 		
