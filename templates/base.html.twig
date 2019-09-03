@@ -12,21 +12,19 @@
     {% endblock %}
 </head>
     <body>
-        {% if app.request.get('_route') == 'index' %}
-            <header>
-                <div class="ribs-container h100">
-                    <div class="row center-xs middle-xs h100">
-                        <div>
-                            <h1>Lorraine</h1>
-                            <h2>Longuet</h2>
-                            <div class="row end-xs">
-                                <h3>Graphiste</h3>
-                            </div>
+        <header  {% if app.request.get('_route') != 'index' %}class="not-index" {% endif %}>
+            <div class="ribs-container {% if app.request.get('_route') == 'index' %}h100{% endif %}">
+                <div class="row center-xs middle-xs {% if app.request.get('_route') == 'index' %}h100{% endif %}">
+                    <div>
+                        <h1>Lorraine</h1>
+                        <h2>Longuet</h2>
+                        <div class="row end-xs">
+                            <h3>Graphiste</h3>
                         </div>
                     </div>
                 </div>
-            </header>
-        {% endif %}
+            </div>
+        </header>
 
         <div class="ribs-container">
             <i class="fas fa-bars fa-2x ribs-nav-open-icon" data-nav="main-nav"></i>
