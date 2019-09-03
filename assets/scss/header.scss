@@ -12,7 +12,13 @@ header {
 	h1, h2 {
 		margin: 0;
 		font-size: 7rem;
+		font-weight: bold;
 		color: $header_color_title;
+	}
+	
+	h1 {
+		line-height: 0.8;
+		margin-bottom: -10px;
 	}
 	
 	h2 {
