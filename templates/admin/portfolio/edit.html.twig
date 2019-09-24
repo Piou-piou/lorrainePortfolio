@@ -68,6 +68,7 @@
 
 {% block javascripts %}
 	{{ parent() }}
+	<script src="{{ asset('build/runtime.js') }}"></script>
 	<script>const toolbar = 'text-only';</script>
 	<script src="{{ asset('build/ribs-admin-bundle/js/tinymce.js') }}"></script>
 {% endblock %}
