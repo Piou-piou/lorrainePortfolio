@@ -9,16 +9,37 @@ use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PagesController extends AbstractController
 {
-	/**
-	 * @Route("/", name="index")
-	 */
-	public function index()
+    /**
+     * @Route("/", name="index")
+     * @param FileTreaterFineUploader $fine_uploader
+     * @return Response
+     */
+	public function index(FileTreaterFineUploader $fine_uploader)
 	{
-		return $this->render("pages/index.html.twig");
+        $projects = $this->getDoctrine()->getManager()->getRepository(Project::class)->findBy([
+            "state" => Project::PUBLISHED,
+            "type" => Project::TYPE_PROJECT
+        ]);
+
+        $images = [];
+        foreach ($projects as $project) {
+            $image = null;
+
+            if ($project->getImagesDir() !== null) {
+                $image = json_decode($fine_uploader->getImagesDisplayed($project->getImagesDir())->getContent());
+                $images[$project->getId()] = $image[0]->thumbnailUrl;
+            }
+        }
+
+		return $this->render("pages/index.html.twig", [
+            "projects" => $projects,
+            "images" => $images
+        ]);
 	}
 
     /**
