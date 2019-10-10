@@ -88,6 +88,13 @@ class Project
 	 * @ORM\Column(name="images_dir", type="string", nullable=true)
 	 */
 	private $imagesDir;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="type", type="integer")
+     */
+	private $type;
 	
 	/**
 	 * @var \DateTime
@@ -277,6 +284,25 @@ class Project
 	{
 		$this->imagesDir = $images;
 	}
+
+    /**
+     * @return int
+     */
+    public function getType(): int
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param int $type
+     * @return Project
+     */
+    public function setType(int $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
 	
 	/**
 	 * @return \DateTime
