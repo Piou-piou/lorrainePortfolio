@@ -338,4 +338,17 @@ class Project
 	{
 		$this->updateDate = $updateDate;
 	}
+
+    /**
+     * method to get formatted type of a project
+     * @return string
+     */
+	public function getFormattedType()
+    {
+        if ($this->getType() === self::TYPE_PROJECT) {
+            return "Projet";
+        } else if ($this->getType() === self::TYPE_ORDER) {
+            return "Commande";
+        }
+    }
 }

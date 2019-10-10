@@ -20,7 +20,8 @@
 			<div class="block">
 				<img src="{{ asset('bundles/ribsadmin/images/block-background.png') }}" alt="background of the block">
 				<h2>{{ i.title }}</h2>
-				
+				<h3>Type : {{ i.formattedType }}</h3>
+
 				<div class="content">
 					<p>{{ i.article|striptags|slice(0, 150) }}</p>
 				</div>
