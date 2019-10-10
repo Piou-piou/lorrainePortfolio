@@ -16,14 +16,19 @@ class PagesController extends AbstractController
 {
     /**
      * @Route("/", name="index")
+     * @Route("/commandes", name="orders")
+     * @param Request $request
      * @param FileTreaterFineUploader $fine_uploader
      * @return Response
      */
-	public function index(FileTreaterFineUploader $fine_uploader)
+	public function index(Request $request, FileTreaterFineUploader $fine_uploader)
 	{
+	    $route = $request->get("_route");
+	    $template = $route === "index" ? "pages/index.html.twig" : "pages/orders.html.twig";
+	    $type = $route === "index" ? Project::TYPE_PROJECT : Project::TYPE_ORDER;
         $projects = $this->getDoctrine()->getManager()->getRepository(Project::class)->findBy([
             "state" => Project::PUBLISHED,
-            "type" => Project::TYPE_PROJECT
+            "type" => $type
         ]);
 
         $images = [];
@@ -36,7 +41,7 @@ class PagesController extends AbstractController
             }
         }
 
-		return $this->render("pages/index.html.twig", [
+		return $this->render($template, [
             "projects" => $projects,
             "images" => $images
         ]);
@@ -48,14 +53,6 @@ class PagesController extends AbstractController
     public function project()
     {
         return $this->render("pages/project.html.twig");
-    }
-
-    /**
-     * @Route("/commandes", name="orders")
-     */
-    public function orders()
-    {
-        return $this->render("pages/orders.html.twig");
     }
 
     /**

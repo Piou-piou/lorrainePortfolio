@@ -3,14 +3,14 @@
 {% block body %}
     <div class="ribs-container projects body-block-space">
         <div class="row center-xs start-lg">
-            {% for i in 1..4 %}
+            {% for project in projects %}
                 <div class="cxs-11 cmd-6 clg-4 block">
-                    <div class="bg-image" style="background-image: url({{ asset('images/orders/0'~i~'.jpg') }})"></div>
+                    <div class="bg-image" {% if images[project.id] is defined %}style="background-image: url({{ images[project.id] }})"{% endif %}></div>
 
                     <div class="bg-text">
-                        <h3>Titre du projet</h3>
+                        <h3>{{ project.title }}</h3>
                         <div class="border"></div>
-                        <p>Description du projet</p>
+                        <p>{{ project.description }}</p>
                     </div>
                 </div>
             {% endfor %}
