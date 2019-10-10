@@ -97,7 +97,7 @@ class Project
      *
      * @ORM\Column(name="type", type="integer")
      */
-	private $type;
+	private $type = Project::TYPE_PROJECT;
 	
 	/**
 	 * @var \DateTime
