@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Project;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -54,6 +56,14 @@ class EditProject extends AbstractType
 				'attr' => [],
 				'required' => true
 			])
+            ->add('type', ChoiceType::class, [
+                'label' => "Type du projet",
+                'choices' => [
+                    "Projet" => Project::TYPE_PROJECT,
+                    "Commande" => Project::TYPE_ORDER,
+                ],
+                'required' => true
+            ])
 			->add('article', TextareaType::class, [
 				'label' => 'Description du projet',
 				'label_attr' => [

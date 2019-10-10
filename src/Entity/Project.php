@@ -16,6 +16,9 @@ class Project
 	const PUBLISHED = 1,
 		DRAFT = 2,
 		ARCHIVED = 3;
+
+    const TYPE_PROJECT = 1,
+        TYPE_ORDER = 2;
 	
 	/**
 	 * @var int
