@@ -23,7 +23,7 @@
     "ribs-navigation": "^1.0.0",
     "ribs-reset-css": "^1.0.2",
     "style-loader": "^0.18.2",
-    "webpack-dev-server": "^2.6.1"
+    "webpack-dev-server": "^3.9.0"
   },
   "license": "UNLICENSED",
   "private": true,
