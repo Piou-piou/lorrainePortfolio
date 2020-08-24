@@ -5,29 +5,20 @@
         <div class="row">
             <div class="csx-12 cmd-8">
                 <div class="row center-xs start-md images">
-                    <div class="cxs-10 cmd-6">
-                        <img src="{{ asset('images/project/01.jpg') }}" alt="Lorraine Longuet, graphiste">
-                    </div>
-                    <div class="cxs-10 cmd-6">
-                        <img src="{{ asset('images/project/02.jpg') }}" alt="travail de Lorraine Longuet">
-                    </div>
-                    <div class="cxs-10 cmd-6">
-                        <img src="{{ asset('images/project/04.jpg') }}" alt="travail de Lorraine Longuet">
-                    </div>
-                    <div class="cxs-10 cmd-6">
-                        <img src="{{ asset('images/project/05.jpg') }}" alt="travail de Lorraine Longuet">
-                    </div>
-                    <div class="cxs-10 cmd-6">
-                        <img src="{{ asset('images/project/06.jpg') }}" alt="travail de Lorraine Longuet">
-                    </div>
+                    {% for image in images %}
+                        <div class="cxs-10 cmd-6">
+                            <img src="{{ asset(image.thumbnailUrl) }}" alt="Lorraine Longuet, graphiste">
+                        </div>
+                        <div style="background-image: url({{ image.thumbnailUrl }})" data-src="{{ image.thumbnailUrl }}"></div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="cxs-12 cmd-4">
-                <h2>Olivia Clavel</h2>
-                <h3>Mémoire</h3>
-                <h4>2018</h4>
+                <h2>{{ project.title }}</h2>
+                <h3>{{ project.description }}</h3>
+                <h4>{{ project.publicationDate }}</h4>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet cumque, delectus explicabo fugit laboriosam placeat quam reiciendis repudiandae veniam voluptas! Ad cumque fuga perspiciatis rerum. Facere nesciunt nisi quidem voluptates! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, architecto, asperiores cupiditate dignissimos dolorum ducimus, facilis fuga id illo ipsam magnam natus necessitatibus nulla odit repellat repudiandae ut voluptas voluptatibus.</p>
+                {{ project.article|raw }}
             </div>
         </div>
     </div>

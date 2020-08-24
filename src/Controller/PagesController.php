@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Project;
 use App\Service\FileTreaterFineUploader;
+use Doctrine\ORM\EntityManagerInterface;
 use Swift_Mailer;
 use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -48,11 +49,25 @@ class PagesController extends AbstractController
 	}
 
     /**
-     * @Route("/projet", name="project")
+     * @Route("/projet/{id}", name="project")
+     * @param EntityManagerInterface $em
+     * @param FileTreaterFineUploader $fine_uploader
+     * @param int $id
+     * @return Response
      */
-    public function project()
+    public function project(EntityManagerInterface $em, FileTreaterFineUploader $fine_uploader, int $id)
     {
-        return $this->render("pages/project.html.twig");
+        $project = $em->getRepository(Project::class)->find($id);
+        $image = null;
+
+        if ($project->getImagesDir() !== null) {
+            $image = json_decode($fine_uploader->getImagesDisplayed($project->getImagesDir())->getContent());
+        }
+
+        return $this->render("pages/project.html.twig", [
+            "project" => $project,
+            "images" => $image
+        ]);
     }
 
     /**
