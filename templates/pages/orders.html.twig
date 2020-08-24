@@ -5,6 +5,7 @@
         <div class="row center-xs start-lg">
             {% for project in projects %}
                 <div class="cxs-11 cmd-6 clg-4 block">
+                    <a href="{{ path('project', {'id': project.id}) }}">
                     <div class="bg-image" {% if images[project.id] is defined %}style="background-image: url({{ images[project.id] }})"{% endif %}></div>
 
                     <div class="bg-text">
@@ -12,6 +13,7 @@
                         <div class="border"></div>
                         <p>{{ project.description }}</p>
                     </div>
+                    </a>
                 </div>
             {% endfor %}
         </div>
